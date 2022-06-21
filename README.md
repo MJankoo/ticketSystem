@@ -31,3 +31,20 @@ $ php bin/console doctrine:migrations:migrate
 ```
 
 After that application is ready to use.
+
+### Usage
+Adding new ticket
+```
+$ /tickets/new
+```
+
+Login page
+```
+$ /login
+```
+
+Tickets list
+```
+$ /tickets
+```
+
