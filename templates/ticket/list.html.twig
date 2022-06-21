@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ticket list!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .tickets-table {
+        width: 100%;
+        text-align: center;
+    }
+</style>
+
+<div class="example-wrapper">
+    <table class="tickets-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Attachment</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ticket in tickets %}
+            <tr class="tickets-table-row">
+                <td>{{ ticket.name }}</td>
+                <td>{{ ticket.surname }}</td>
+                {% if ticket.attachment %}
+                    <td><a href="{{ asset('images/'~ticket.attachment) }}" download="{{ ticket.name }}-{{ ticket.surname }}">Download</a></td>
+                {% else %}
+                    <td>No attachment</td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
